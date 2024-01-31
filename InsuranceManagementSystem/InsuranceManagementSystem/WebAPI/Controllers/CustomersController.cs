@@ -1,31 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+﻿using System.Collections.Generic;
 using System.Web.Http;
-using System.Web.Http.Description;
 using DAL;
+using WebAPI.Services;
 
 namespace WebAPI.Controllers
 {
     public class CustomersController : ApiController
     {
-        private InsuranceDbContext db = new InsuranceDbContext();
+        private InsuranceService _insuranceService;
 
-        
-        public IQueryable<Customer> GetCustomers()
+        public CustomersController()
         {
-            return db.Customers;
+            _insuranceService = new InsuranceService(new InsuranceDAL(new InsuranceDbContext()));
         }
 
-        [ResponseType(typeof(Customer))]
+        public IEnumerable<Customer> GetCustomers()
+        {
+            return _insuranceService.GetAllCustomers();
+        }
+
         public IHttpActionResult GetCustomer(int id)
         {
-            Customer customer = db.Customers.Find(id);
+            Customer customer = _insuranceService.GetCustomerById(id);
             if (customer == null)
             {
                 return NotFound();
@@ -34,7 +30,18 @@ namespace WebAPI.Controllers
             return Ok(customer);
         }
 
-        [ResponseType(typeof(void))]
+        public IHttpActionResult PostCustomer(Customer customer)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            _insuranceService.AddCustomer(customer);
+
+            return CreatedAtRoute("DefaultApi", new { id = customer.Id }, customer);
+        }
+
         public IHttpActionResult PutCustomer(int id, Customer customer)
         {
             if (!ModelState.IsValid)
@@ -47,69 +54,22 @@ namespace WebAPI.Controllers
                 return BadRequest();
             }
 
-            db.Entry(customer).State = EntityState.Modified;
+            _insuranceService.UpdateCustomer(customer);
 
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!CustomerExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return StatusCode(HttpStatusCode.NoContent);
+            return StatusCode(System.Net.HttpStatusCode.NoContent);
         }
 
-       
-        [ResponseType(typeof(Customer))]
-        public IHttpActionResult PostCustomer(Customer customer)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            db.Customers.Add(customer);
-            db.SaveChanges();
-
-            return CreatedAtRoute("DefaultApi", new { id = customer.Id }, customer);
-        }
-
-        [ResponseType(typeof(Customer))]
         public IHttpActionResult DeleteCustomer(int id)
         {
-            Customer customer = db.Customers.Find(id);
+            Customer customer = _insuranceService.GetCustomerById(id);
             if (customer == null)
             {
                 return NotFound();
             }
 
-            db.Customers.Remove(customer);
-            db.SaveChanges();
+            _insuranceService.DeleteCustomer(id);
 
             return Ok(customer);
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
-        private bool CustomerExists(int id)
-        {
-            return db.Customers.Count(e => e.Id == id) > 0;
         }
     }
 }
