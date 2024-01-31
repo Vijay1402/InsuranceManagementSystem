@@ -55,6 +55,8 @@
         <th style="background-color: #343a40;">Policy Number</th>
         <th style="background-color: #343a40;">Applied Date</th>
         <th style="background-color: #343a40;">Category</th>
+        <th style="background-color: #343a40;">Policy Type</th>
+        <th style="background-color: #343a40;">Price</th>
         <th style="background-color: #343a40;">Action</th>
     </tr>
 
@@ -64,6 +66,8 @@
             <td style="background-color: #8faebd;">@policy.PolicyNumber</td>
             <td style="background-color: #8faebd;">@policy.AppliedDate.ToString("yyyy-MM-dd")</td>
             <td style="background-color: #8faebd;">@policy.Category</td>
+            <td style="background-color: #8faebd;">@policy.PolicyType </td>
+            <td style="background-color: #8faebd;">@policy.Price</td>
             <td style="background-color: #8faebd;">
                 @Html.ActionLink("Delete", "DeletePolicy", "Policy", new { policyNumber = policy.PolicyNumber }, new { @class = "delete-link" })
             </td>

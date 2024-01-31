@@ -8,8 +8,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DAL
 {
+    public enum PolicyType
+    {
+        Premium,
+        Normal
+    }
     public class Policy
     {
+
 
         [Key]
         public int PolicyId { get; set; }
@@ -26,6 +32,11 @@ namespace DAL
 
 
         public int CustomerId { get; set; }
+
+        [Required(ErrorMessage = "Policy Type is required")]
+        public PolicyType PolicyType { get; set; }
+
+        public double Price { get; set; }
 
 
     }

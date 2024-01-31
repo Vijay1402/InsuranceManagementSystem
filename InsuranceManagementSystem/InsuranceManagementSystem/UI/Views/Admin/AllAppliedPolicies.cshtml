@@ -33,6 +33,8 @@
             <th>Policy Number</th>
             <th>Applied Date</th>
             <th>Category</th>
+            <th>Policy Type</th>
+            <th>Price</th>
             <th>Status</th>
             <th>Action</th>
         </tr>
@@ -46,52 +48,54 @@
                     <td>@policy.PolicyNumber</td>
                     <td>@policy.AppliedDate.ToShortDateString()</td>
                     <td>@policy.Category</td>
+                    <td>@policy.PolicyType</td>
+                    <td>@policy.Price</td>
                     <td>
                         @switch (policy.StatusCode)
-                            {
-                                case PolicyStatus.Pending: <span>Pending</span>
-                                    break;
+                        {
+                            case PolicyStatus.Pending:<span>Pending</span>
+                                break;
 
-                                case PolicyStatus.Approved: <span>Approved</span>
-                                    break;
+                            case PolicyStatus.Approved: <span>Approved</span>
+                                break;
 
-                                case PolicyStatus.Disapproved: <span>Disapproved</span>
-                                    break;
+                            case PolicyStatus.Disapproved: <span>Disapproved</span>
+                                break;
 
-                                default: <span>Unknown</span>
+                            default: <span>Unknown</span>
                                 break;
                         }
 
                     </td>
 
                     <td>
-                        @if(policy.StatusCode == PolicyStatus.Pending)
+                        @if (policy.StatusCode == PolicyStatus.Pending)
                         {
-                            using(Html.BeginForm("ApprovePolicy","Admin", FormMethod.Post))
-                    {
-                        @Html.Hidden("policyId", policy.AppliedPolicyId)
+                            using (Html.BeginForm("ApprovePolicy", "Admin", FormMethod.Post))
+                            {
+                                @Html.Hidden("policyId", policy.AppliedPolicyId)
                                 <button type="submit" class="btn btn-outline-success">Approve</button>
                             }
 
-                            using(Html.BeginForm("DisapprovePolicy", "Admin", FormMethod.Post))
-                    {
-                        @Html.Hidden("policyId", policy.AppliedPolicyId)
+                            using (Html.BeginForm("DisapprovePolicy", "Admin", FormMethod.Post))
+                            {
+                                @Html.Hidden("policyId", policy.AppliedPolicyId)
                                 <button type="submit" class="btn btn-outline-danger">Disapprove</button>
-                    }
+                            }
                         }
-else
-                {
-                    <span class="badge badge-secondary">
-                        @if (policy.StatusCode == PolicyStatus.Approved)
-                    {
-                        <text>Approved</text>
-                    }
-else
-                    {
-                        <text>Disapproved</text>
-                    }
-                    </span>
-                }
+                        else
+                        {
+                            <span class="badge badge-secondary">
+                                @if (policy.StatusCode == PolicyStatus.Approved)
+                                {
+                                    <text>Approved</text>
+                                }
+                                else
+                                {
+                                    <text>Disapproved</text>
+                                }
+                            </span>
+                        }
                     </td>
                 </tr>
             }

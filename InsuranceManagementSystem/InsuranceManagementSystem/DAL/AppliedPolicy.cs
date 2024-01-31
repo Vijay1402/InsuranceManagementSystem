@@ -33,6 +33,11 @@ namespace DAL
         [Required(ErrorMessage = "Customer Id is required")]
         public int CustomerId { get; set; }
 
+        [Required(ErrorMessage = "Policy Type is required")]
+        public PolicyType PolicyType { get; set; }
+
+        public double Price { get; set; }
+
         // Navigation property to link AppliedPolicy with Customer
         public virtual Customer Customer { get; set; }
         public PolicyStatus StatusCode { get; set; } = PolicyStatus.Pending;

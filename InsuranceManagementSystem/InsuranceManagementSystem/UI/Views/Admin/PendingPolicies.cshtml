@@ -52,6 +52,8 @@
             <th>Policy Number</th>
             <th>Applied Date</th>
             <th>Category</th>
+            <th>Policy Type</th>
+            <th>Price</th>
             <th>Status</th>
         </tr>
     </thead>
@@ -63,6 +65,8 @@
                 <td>@policy.PolicyNumber</td>
                 <td>@policy.AppliedDate.ToShortDateString()</td>
                 <td>@policy.Category</td>
+                <td>@policy.PolicyType</td>
+                <td>@policy.Price</td>
                 <td>
                     <span class="status-pending">Pending</span>
                 </td>

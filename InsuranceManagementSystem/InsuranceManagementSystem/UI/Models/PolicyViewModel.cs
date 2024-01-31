@@ -20,6 +20,9 @@ namespace UI.Models
 
         // Example: Policy Type (Life, Health, Auto, etc.)
         public string Category { get; set; }
+        public PolicyType PolicyType { get; set; }
+
+        public double Price { get; set; }
 
         // Add other properties as needed
     }

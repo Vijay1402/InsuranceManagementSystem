@@ -145,9 +145,9 @@ G:\RLL\InsuranceCSS\RLL-3\InsuranceManagementSystem\InsuranceManagementSystem\DA
 G:\RLL\InsuranceCSS\RLL-3\InsuranceManagementSystem\InsuranceManagementSystem\DAL\bin\Debug\System.Threading.Tasks.Extensions.xml
 G:\RLL\InsuranceCSS\RLL-3\InsuranceManagementSystem\InsuranceManagementSystem\DAL\bin\Debug\System.ValueTuple.xml
 G:\RLL\InsuranceCSS\RLL-3\InsuranceManagementSystem\InsuranceManagementSystem\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
-G:\RLL\InsuranceCSS\RLL-3\InsuranceManagementSystem\InsuranceManagementSystem\DAL\obj\Debug\DAL.Migrations.firstMigration.resources
-G:\RLL\InsuranceCSS\RLL-3\InsuranceManagementSystem\InsuranceManagementSystem\DAL\obj\Debug\DAL.csproj.GenerateResource.cache
 G:\RLL\InsuranceCSS\RLL-3\InsuranceManagementSystem\InsuranceManagementSystem\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
 G:\RLL\InsuranceCSS\RLL-3\InsuranceManagementSystem\InsuranceManagementSystem\DAL\obj\Debug\DAL.csproj.CopyComplete
 G:\RLL\InsuranceCSS\RLL-3\InsuranceManagementSystem\InsuranceManagementSystem\DAL\obj\Debug\DAL.dll
 G:\RLL\InsuranceCSS\RLL-3\InsuranceManagementSystem\InsuranceManagementSystem\DAL\obj\Debug\DAL.pdb
+G:\RLL\InsuranceCSS\RLL-3\InsuranceManagementSystem\InsuranceManagementSystem\DAL\obj\Debug\DAL.Migrations.firstMig.resources
+G:\RLL\InsuranceCSS\RLL-3\InsuranceManagementSystem\InsuranceManagementSystem\DAL\obj\Debug\DAL.csproj.GenerateResource.cache

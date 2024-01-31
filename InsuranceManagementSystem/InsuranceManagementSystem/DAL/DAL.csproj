@@ -118,9 +118,9 @@
     <Compile Include="Data\AdminRepository.cs" />
     <Compile Include="Data\CustomerRepository.cs" />
     <Compile Include="InsuranceDbContext.cs" />
-    <Compile Include="Migrations\202401260849353_firstMigration.cs" />
-    <Compile Include="Migrations\202401260849353_firstMigration.designer.cs">
-      <DependentUpon>202401260849353_firstMigration.cs</DependentUpon>
+    <Compile Include="Migrations\202401310651386_firstMig.cs" />
+    <Compile Include="Migrations\202401310651386_firstMig.designer.cs">
+      <DependentUpon>202401310651386_firstMig.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Policy.cs" />
@@ -136,8 +136,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202401260849353_firstMigration.resx">
-      <DependentUpon>202401260849353_firstMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202401310651386_firstMig.resx">
+      <DependentUpon>202401310651386_firstMig.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
