@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("InsuranceNunit")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+aaf6db6b6783489964e42788b35e0b88883a1590")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9c1a75915cb7d52ea57a1dc9b0c6ec6618b248df")]
 [assembly: System.Reflection.AssemblyProductAttribute("InsuranceNunit")]
 [assembly: System.Reflection.AssemblyTitleAttribute("InsuranceNunit")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

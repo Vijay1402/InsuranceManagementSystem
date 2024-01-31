@@ -42,8 +42,9 @@ namespace UI.Controllers
                     PolicyNumber = policyViewModel.PolicyNumber,
 
                     AppliedDate = policyViewModel.AppliedDate,
-                    Category = policyViewModel.Category
-                    // Add other properties as needed
+                    Category = policyViewModel.Category,
+                    PolicyType = policyViewModel.PolicyType,
+                    Price = policyViewModel.Price
                 };
 
                 // Add logic to save the new policy to the database
@@ -76,7 +77,8 @@ namespace UI.Controllers
                 PolicyNumber = policy.PolicyNumber,
                 AppliedDate = policy.AppliedDate,
                 Category = policy.Category
-                // Map other properties as needed
+                PolicyType = policyViewModel.PolicyType,
+                Price = policyViewModel.Price
             }).ToList();
 
             return View(viewModels);
@@ -106,8 +108,9 @@ namespace UI.Controllers
             {
                 PolicyNumber = policyToEdit.PolicyNumber,
                 AppliedDate = policyToEdit.AppliedDate,
-                Category = policyToEdit.Category
-                // Map other properties as needed
+                Category = policyToEdit.Category,
+                PolicyType = policyToEdit.PolicyType,
+                Price = policyToEdit.Price
             };
 
             return View(viewModel);
@@ -131,7 +134,9 @@ namespace UI.Controllers
                 // Update the policy with the new values
                 policyToEdit.AppliedDate = viewModel.AppliedDate;
                 policyToEdit.Category = viewModel.Category;
-                // Update other properties as needed
+                policyToEdit.PolicyType = viewModel.PolicyType;
+                policyToEdit.Price = viewModel.Price;
+               
 
                 // Save changes to the database
                 dbContext.SaveChanges();
@@ -164,8 +169,9 @@ namespace UI.Controllers
             {
                 PolicyNumber = policy.PolicyNumber,
                 AppliedDate = policy.AppliedDate,
-                Category = policy.Category
-                // Map other properties as needed
+                Category = policy.Category,
+                PolicyType = policy.PolicyType,
+                Price = policy.Price
             }).ToList();
 
             return View(viewModels);
@@ -189,8 +195,9 @@ namespace UI.Controllers
             {
                 PolicyNumber = policyToDelete.PolicyNumber,
                 AppliedDate = policyToDelete.AppliedDate,
-                Category = policyToDelete.Category
-                // Map other properties as needed
+                Category = policyToDelete.Category,
+                PolicyType = policyToDelete.PolicyType,
+                Price = policyToDelete.Price
             };
 
             return View(viewModel);
