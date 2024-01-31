@@ -261,12 +261,13 @@
     <Content Include="Views\Validation\CustomerResetPassword.cshtml" />
     <Content Include="Views\Validation\Index.cshtml" />
     <Content Include="Views\Validation\Logout.cshtml" />
-    <Content Include="Views\Validation\Registration.cshtml" />
     <Content Include="Views\Validation\ResetPassword.cshtml" />
     <Content Include="Views\Shared\AdminLayout.cshtml" />
     <Content Include="Views\Shared\CustomerLayout.cshtml" />
     <Content Include="Views\Validation\AdminLogin.cshtml" />
     <Content Include="Views\Admin\GetAllCustomers.cshtml" />
+    <Content Include="Views\Validation\CustomerReg.cshtml" />
+    <Content Include="Views\Validation\AdminReg.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

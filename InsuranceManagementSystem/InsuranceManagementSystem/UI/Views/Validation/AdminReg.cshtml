@@ -1,12 +1,12 @@
 ﻿﻿@model UI.Models.UserView
 
 @{
-    ViewBag.Title = "Registration";
+    ViewBag.Title = "AdminReg";
 }
 <style>
     body {
         background-color: lightgrey;
-        font-weight:bold;
+        font-weight: bold;
     }
 </style>
 
@@ -16,7 +16,7 @@
     <h2>New Registration</h2>
 
 </div>
-@using (Html.BeginForm("Registration", "Validation", FormMethod.Post, new { id = "registrationForm" }))
+@using (Html.BeginForm("AdminReg", "Validation", FormMethod.Post, new { id = "adminRegForm" }))
 {
     @Html.AntiForgeryToken()
 
@@ -78,41 +78,41 @@
             <label class="control-label col-md-2">Captcha:</label>
             <div class="col-md-8">
                 <img id="captchaImage" src="@Url.Action("GenerateCaptchaImage", "Validation")" alt="Captcha Image" />
-                <img id="refreshCaptchaButton" src="~/Content/Refresh.jpg"  alt="Refresh Captcha" onclick="refreshCaptcha()" style="cursor: pointer; width: 20px; height: 20px;" />
+                <img id="refreshCaptchaButton" src="~/Content/Refresh.jpg" alt="Refresh Captcha" onclick="refreshCaptcha()" style="cursor: pointer; width: 20px; height: 20px;" />
                 @Html.TextBox("captchaInput", null, new { @class = "form-control" })
                 @Html.ValidationMessage("captchaInput")
             </div>
         </div>
-        <div class="form-group">
-            @Html.Label("User Type", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @if (User.Identity.IsAuthenticated)
-                {
-                    if (User.IsInRole("Admin"))
+        @*<div class="form-group">
+                @Html.Label("User Type", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        if (User.IsInRole("Admin"))
+                        {
+                            <label class="radio-inline">
+                                @Html.RadioButtonFor(model => model.UserType, 2) Customer
+                            </label>
+                            <label class="radio-inline">
+                                @Html.RadioButtonFor(model => model.UserType, 1) Admin
+                            </label>
+                            @Html.ValidationMessageFor(model => model.UserType, "", new { @class = "text-danger" })
+                        }
+                    }
+                    else
                     {
                         <label class="radio-inline">
-                            @Html.RadioButtonFor(model => model.UserType, 2) Customer
-                        </label>
-                        <label class="radio-inline">
-                            @Html.RadioButtonFor(model => model.UserType, 1) Admin
+                            @Html.RadioButtonFor(model => model.UserType, 2, new { @checked = true }) Customer
                         </label>
                         @Html.ValidationMessageFor(model => model.UserType, "", new { @class = "text-danger" })
                     }
-                }
-                else
-                {
-                    <label class="radio-inline">
-                        @Html.RadioButtonFor(model => model.UserType, 2, new { @checked = true }) Customer
-                    </label>
-                    @Html.ValidationMessageFor(model => model.UserType, "", new { @class = "text-danger" })
-                }
-            </div>
-        </div>
+                </div>
+            </div>*@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-success" />
-                <input type="button" value="Reset" class="ms-2 btn btn-warning" onclick="resetForm('registrationForm')" />
+                <input type="button" value="Reset" class="ms-2 btn btn-warning" onclick="resetForm('AdminRegForm')" />
             </div>
         </div>
     </div>
@@ -120,7 +120,7 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-<script>
+    <script>
         function resetForm(formId) {
             var form = document.getElementById(formId);
 
@@ -144,5 +144,5 @@
             // Clear the previous captcha input value
             document.getElementById('captchaInput').value = '';
         }
-</script>
+    </script>
 }
