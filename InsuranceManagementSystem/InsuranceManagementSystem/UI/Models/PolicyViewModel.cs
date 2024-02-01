@@ -24,7 +24,6 @@ namespace UI.Models
 
         public double Price { get; set; }
 
-        // Add other properties as needed
     }
 
 

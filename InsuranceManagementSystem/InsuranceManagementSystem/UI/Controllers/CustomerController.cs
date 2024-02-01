@@ -31,11 +31,7 @@ namespace UI.Controllers
         {
             return View();  
         }
-        //public ActionResult GetAllCustomers() 
-        //{
-        //    var customer = dbContext.Customers.ToList();  
-        //    return View(customer);
-        //}
+        
         
         public ActionResult GetAllUsers()    
         {
@@ -49,7 +45,7 @@ namespace UI.Controllers
         }
         public ActionResult Apply(int policyId)  
         {
-            int customerId = 1;
+            int customerId = Convert.ToInt32(Session["CustomerUserId"]);
            
             bool AppliedAlready = dbContext.AppliedPolicies
             .Any(ap => ap.CustomerId == customerId && ap.AppliedPolicyId == policyId);

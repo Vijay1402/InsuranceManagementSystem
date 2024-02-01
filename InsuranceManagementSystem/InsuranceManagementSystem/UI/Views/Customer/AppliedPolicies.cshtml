@@ -60,16 +60,19 @@
         </tr>
         @foreach (var appliedPolicy in Model)
         {
-            <tr>
-                <td>@appliedPolicy.AppliedPolicyId</td>
-                <td>@appliedPolicy.PolicyNumber</td>
-                <td>@appliedPolicy.AppliedDate.ToShortDateString()</td>
-                <td>@appliedPolicy.Category</td>
-                <td>@appliedPolicy.PolicyType</td>
-                <td>@appliedPolicy.Price</td>
-                <td>@appliedPolicy.CustomerId</td>
-                <td>@appliedPolicy.StatusCode</td>
-            </tr>
+            if (appliedPolicy.CustomerId == Convert.ToInt32(Session["CustomerUserId"]))
+            {
+                <tr>
+                    <td>@appliedPolicy.AppliedPolicyId</td>
+                    <td>@appliedPolicy.PolicyNumber</td>
+                    <td>@appliedPolicy.AppliedDate.ToShortDateString()</td>
+                    <td>@appliedPolicy.Category</td>
+                    <td>@appliedPolicy.PolicyType</td>
+                    <td>@appliedPolicy.Price</td>
+                    <td>@appliedPolicy.CustomerId</td>
+                    <td>@appliedPolicy.StatusCode</td>
+                </tr>
+            }
         }
     </table>
 </body>
