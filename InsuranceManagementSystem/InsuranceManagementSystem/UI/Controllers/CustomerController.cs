@@ -66,6 +66,8 @@ namespace UI.Controllers
                         PolicyNumber = policy.PolicyNumber,
                         AppliedDate = DateTime.Now,
                         Category = policy.Category,
+                        PolicyType = policy.PolicyType,
+                        Price = policy.Price,
                         CustomerId = customerId
                     };
               

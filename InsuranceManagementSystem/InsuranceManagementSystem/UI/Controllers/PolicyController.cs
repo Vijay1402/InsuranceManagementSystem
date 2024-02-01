@@ -76,9 +76,9 @@ namespace UI.Controllers
             {
                 PolicyNumber = policy.PolicyNumber,
                 AppliedDate = policy.AppliedDate,
-                Category = policy.Category
-                PolicyType = policyViewModel.PolicyType,
-                Price = policyViewModel.Price
+                Category = policy.Category,
+                PolicyType = policy.PolicyType,
+                Price = policy.Price
             }).ToList();
 
             return View(viewModels);
