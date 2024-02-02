@@ -25,7 +25,7 @@ namespace DAL
 
         [Required(ErrorMessage = "Applied Date is required")]
         [DataType(DataType.Date)]
-        public DateTime AppliedDate { get; set; }
+        public DateTime DateOfCreation { get; set; }
 
         // Example: Policy Type (Life, Health, Auto, etc.)
         public string Category { get; set; }

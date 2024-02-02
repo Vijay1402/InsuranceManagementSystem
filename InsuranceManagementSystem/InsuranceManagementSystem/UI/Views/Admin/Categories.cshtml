@@ -1,28 +1,36 @@
-﻿@model List<DAL.Category>
-    <style>
-        body{
-            background-color:lightgray;
-        }
-        table{
-            width:100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
+﻿@{
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+@model List<DAL.Category>
+<style>
+    body {
+        background-color: lightgray;
+    }
 
-        th,td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
+    table {
+        width: %;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
 
-        th {
-            background-color: #343a40;
-            color: white;
-        }
-        td {
-            background-color: #8faebd;
-        }
-    </style>
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #343a40;
+        color: white;
+    }
+
+    td {
+        background-color: #8faebd;
+    }
+    .sidebar{
+        display:none;
+    }
+</style>
 
 
 <h2>List of Categories</h2>
@@ -34,12 +42,12 @@
         <th>Number of Policies</th>
     </tr>
 
-    @foreach(var category in Model)
-            {
-                <tr>
-                    <td>@category.CategoryId</td>
-                    <td>@category.CategoryName</td>
-                    <td>@(category.CategoryId)</td>
-                </tr>
-            }
+    @foreach (var category in Model)
+    {
+        <tr>
+            <td>@category.CategoryId</td>
+            <td>@category.CategoryName</td>
+            <td>@(category.CategoryId)</td>
+        </tr>
+    }
 </table>

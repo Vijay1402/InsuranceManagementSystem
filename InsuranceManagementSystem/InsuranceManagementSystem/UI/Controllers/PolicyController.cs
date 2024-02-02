@@ -41,7 +41,7 @@ namespace UI.Controllers
                 {
                     PolicyNumber = policyViewModel.PolicyNumber,
 
-                    AppliedDate = policyViewModel.AppliedDate,
+                    DateOfCreation = policyViewModel.DateOfCreation,
                     Category = policyViewModel.Category,
                     PolicyType = policyViewModel.PolicyType,
                     Price = policyViewModel.Price
@@ -75,7 +75,7 @@ namespace UI.Controllers
             List<PolicyViewModel> viewModels = allPolicies.Select(policy => new PolicyViewModel
             {
                 PolicyNumber = policy.PolicyNumber,
-                AppliedDate = policy.AppliedDate,
+                DateOfCreation = policy.DateOfCreation,
                 Category = policy.Category,
                 PolicyType = policy.PolicyType,
                 Price = policy.Price
@@ -107,7 +107,7 @@ namespace UI.Controllers
             PolicyViewModel viewModel = new PolicyViewModel
             {
                 PolicyNumber = policyToEdit.PolicyNumber,
-                AppliedDate = policyToEdit.AppliedDate,
+                DateOfCreation = policyToEdit.DateOfCreation,
                 Category = policyToEdit.Category,
                 PolicyType = policyToEdit.PolicyType,
                 Price = policyToEdit.Price
@@ -132,7 +132,7 @@ namespace UI.Controllers
                 }
 
                 // Update the policy with the new values
-                policyToEdit.AppliedDate = viewModel.AppliedDate;
+                policyToEdit.DateOfCreation = viewModel.DateOfCreation;
                 policyToEdit.Category = viewModel.Category;
                 policyToEdit.PolicyType = viewModel.PolicyType;
                 policyToEdit.Price = viewModel.Price;
@@ -168,7 +168,7 @@ namespace UI.Controllers
             List<PolicyViewModel> viewModels = allPolicies.Select(policy => new PolicyViewModel
             {
                 PolicyNumber = policy.PolicyNumber,
-                AppliedDate = policy.AppliedDate,
+                DateOfCreation = policy.DateOfCreation,
                 Category = policy.Category,
                 PolicyType = policy.PolicyType,
                 Price = policy.Price
@@ -194,7 +194,7 @@ namespace UI.Controllers
             PolicyViewModel viewModel = new PolicyViewModel
             {
                 PolicyNumber = policyToDelete.PolicyNumber,
-                AppliedDate = policyToDelete.AppliedDate,
+                DateOfCreation = policyToDelete.DateOfCreation,
                 Category = policyToDelete.Category,
                 PolicyType = policyToDelete.PolicyType,
                 Price = policyToDelete.Price
