@@ -17,7 +17,7 @@ namespace InsuranceNunit
 
             var policyViewModel = new PolicyViewModel
             {
-                AppliedDate = DateTime.Now,
+                DateOfCreation = DateTime.Now,
                 Category = "Life"
             };
 
@@ -33,7 +33,7 @@ namespace InsuranceNunit
             {
                 PolicyNumber = "ABC123",
                 Category = "Travel",
-                AppliedDate = DateTime.Now
+                DateOfCreation = DateTime.Now
             };
 
 
@@ -47,7 +47,7 @@ namespace InsuranceNunit
             var policyViewModel = new PolicyViewModel
             {
                 PolicyNumber = "ABC123",
-                AppliedDate = DateTime.Now,
+                DateOfCreation = DateTime.Now,
                 Category = "Health"
             };
 
