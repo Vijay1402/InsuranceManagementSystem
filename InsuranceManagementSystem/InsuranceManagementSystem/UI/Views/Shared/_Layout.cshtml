@@ -11,7 +11,9 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" rel="stylesheet">
     <style>
         /* Your existing styles remain unchanged */
-
+        #right-nav{
+            display:none;
+        }
         .navbar-nav .nav-link {
             padding: 10px 15px;
             transition: background-color 0.2s;
@@ -73,9 +75,11 @@
                 </ul>
 
                 <!-- Logout link aligned to the right -->
-                @*<ul class="navbar-nav">
-                    <li>@Html.ActionLink("Logout", "Logout", "Validation", new { area = "" }, new { @class = "nav-link" })</li>
-                </ul>*@
+                <ul id="right-nav" class="navbar-nav">
+                    <li id="admin-dash">@Html.ActionLink("Dashboard", "Dashboard", "Admin", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li id="cust-dash">@Html.ActionLink("Dashboard", "Dashboard", "Customer", new { area = "" }, new { @class = "nav-link" })</li>
+                    @*<li>@Html.ActionLink("Logout", "Logout", "Validation", new { area = "" }, new { @class = "nav-link" })</li>*@
+                </ul>
             </div>
         </div>
     </nav>
