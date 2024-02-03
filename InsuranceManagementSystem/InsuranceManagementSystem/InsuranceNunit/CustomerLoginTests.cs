@@ -86,7 +86,6 @@ namespace InsuranceNunit
 
         private bool CustomerExistsInDatabase(CustomerView model)
         {
-            // Replace "YourConnectionString" with the actual connection string to your database
             var connectionString = "data source=DESKTOP-VQHITSP;initial catalog=InsuranceDb;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework\" providerName=\"System.Data.SqlClient";
 
             using (var connection = new SqlConnection(connectionString))

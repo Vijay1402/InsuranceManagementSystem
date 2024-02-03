@@ -15,6 +15,8 @@ namespace DAL.Repository
         bool AdminExistsEmail(string UserEmail);
         bool AdminExists(string userName);
         Admin GetAdminById(int adminId);
+        Admin GetAdminByUserName(string userName);
+        Admin GetAdminByUserNamePhone(string userName, string phoneNumber);
         IEnumerable<Admin> GetAllAdmins();
 
         // Update
@@ -22,12 +24,12 @@ namespace DAL.Repository
 
         // Delete
         Admin DeleteAdmin(int adminId);
-        Admin GetAdminByUserName(string userName);
+        
         void SaveAdminchages();
 
 
 
-        Admin GetAdminByUserNamePhone(string userName, string phoneNumber);
+        
 
     }
 }

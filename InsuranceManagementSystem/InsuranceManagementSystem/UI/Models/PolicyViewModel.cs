@@ -18,7 +18,6 @@ namespace UI.Models
         [DataType(DataType.Date)]
         public DateTime DateOfCreation { get; set; }
 
-        // Example: Policy Type (Life, Health, Auto, etc.)
         public string Category { get; set; }
         public PolicyType PolicyType { get; set; }
 

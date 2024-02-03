@@ -199,7 +199,6 @@ namespace UI.Controllers
             }
         }
 
-        //YourController.cs
 
         public ActionResult Question()
         {

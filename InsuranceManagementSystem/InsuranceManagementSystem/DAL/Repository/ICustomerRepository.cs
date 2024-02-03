@@ -9,23 +9,25 @@ namespace DAL.Repository
     public interface ICustomerRepository
     {
         // Create
-
+        Customer CreateCustomer(Customer customer);
         int customerSAveChanges();
 
-        Customer GetCustomerByUserName(string userName);
-        Customer CreateCustomer(Customer customer);
-        bool CustomerExistsEmail(string Email);
         // Read
+        Customer GetCustomerByUserName(string userName);
+        Customer GetCustomerByUserNamePhone(string UserName, string PhoneNumber);
+
+        bool CustomerExistsEmail(string Email);
+        
         Customer GetCustomerById(int customerId);
         IEnumerable<Customer> GetAllCustomers();
         bool CustomerExists(string userName);
         // Update
         Customer UpdateCustomer(Customer customer);
-        //int GetCurrentCustomerId(string userName);
+        
         // Delete
         Customer DeleteCustomer(int customerId);
 
-        Customer GetCustomerByUserNamePhone(string UserName, string PhoneNumber);
+        
 
     }
 }

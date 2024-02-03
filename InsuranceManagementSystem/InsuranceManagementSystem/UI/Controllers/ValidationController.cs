@@ -155,9 +155,6 @@ namespace UILayer.Controllers
             return View();
         }
 
-
-
-
         [HttpPost]
         public ActionResult AdminLogin(LoginView loginView)
         {
@@ -217,7 +214,6 @@ namespace UILayer.Controllers
                 }
                 else
                 {
-                    // Assuming that model.Password is already in plain text
                     user.Password = model.Password;
                     customerRepository.customerSAveChanges();
                 }
@@ -244,7 +240,6 @@ namespace UILayer.Controllers
                 }
                 else
                 {
-                    // Assuming that model.Password is already in plain text
                     user.Password = model.Password;
                     adminRepository.SaveAdminchages();
                 }
@@ -258,26 +253,23 @@ namespace UILayer.Controllers
 
         public ActionResult Logout()
         {
-            // Add any logout logic here, such as clearing session or authentication data
             if (Session["AdminUserId"] != null)
             {
-                Session.Remove("AdminUserId"); // Clear admin session variable
+                Session.Remove("AdminUserId"); 
             }
             else if (Session["CustomerUserId"] != null)
             {
-                Session.Remove("CustomerUserId"); // Clear customer session variable
-                Session.Remove("CustomerUserName"); // Clear other customer session variables if needed
+                Session.Remove("CustomerUserId");
+                Session.Remove("CustomerUserName"); 
             }
 
-            Session.Abandon(); // Abandon the session
+            Session.Abandon(); 
 
-            // Set cache control headers to prevent caching
             Response.Cache.SetCacheability(System.Web.HttpCacheability.NoCache);
             Response.Cache.SetExpires(System.DateTime.UtcNow.AddMinutes(-1));
             Response.Cache.SetNoStore();
 
-            // Redirect to the home page
-            return RedirectToAction("Index", "Home"); // Adjust "Index" and "Home" based on your actual home page route
+            return RedirectToAction("Index", "Home"); 
         }
 
 

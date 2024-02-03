@@ -18,7 +18,7 @@ namespace DAL.Service
 
         public static bool VerifyAdminCredentials(string username, string password)
         {
-            // Your logic to check username and password in the database
+            // check for username and pwd in the db
             var admin = context.Admins.FirstOrDefault(a => a.UserName == username);
 
             if (admin != null)
@@ -33,7 +33,7 @@ namespace DAL.Service
         }
         public static bool VerifyCustomerCredentials(string username, string password)
         {
-            // Your logic to check username and password in the database
+            
             var cutomer = context.Customers.FirstOrDefault(a => a.UserName == username);
 
             if (cutomer != null)
@@ -44,7 +44,7 @@ namespace DAL.Service
                 }
             }
 
-            return false; // Invalid username or password
+            return false; 
         }
     }
 }

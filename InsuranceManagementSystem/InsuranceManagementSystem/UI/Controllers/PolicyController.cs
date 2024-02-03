@@ -17,7 +17,6 @@ namespace UI.Controllers
             dbContext = new InsuranceDbContext(); 
         }
 
-        // Action method to show all policies
         public ActionResult ShowAllPolicy()
         {
             var policies = dbContext.Policies.ToList();
@@ -36,26 +35,22 @@ namespace UI.Controllers
         {
             if (ModelState.IsValid)
             {
-                // Convert the view model to the data model before saving to the database
+                
                 Policy newPolicy = new Policy
                 {
                     PolicyNumber = policyViewModel.PolicyNumber,
-
                     DateOfCreation = policyViewModel.DateOfCreation,
                     Category = policyViewModel.Category,
                     PolicyType = policyViewModel.PolicyType,
                     Price = policyViewModel.Price
                 };
 
-                // Add logic to save the new policy to the database
                 dbContext.Policies.Add(newPolicy);
                 dbContext.SaveChanges();
 
-                // Redirect to a success view or another action
                 return RedirectToAction("AddPolicySuccess");
             }
 
-            // If the model is not valid, redisplay the form with validation errors
             return View(policyViewModel);
         }
         public ActionResult AddPolicySuccess()
@@ -63,15 +58,11 @@ namespace UI.Controllers
             return View();
         }
 
-        /// <summary>
-        /// /////////////////////////////////////////////////////////////////
 
         public ActionResult ShowAllPoliciesEdit()
         {
-            // Retrieve a list of all policies from the database
             List<Policy> allPolicies = dbContext.Policies.ToList();
 
-            // Map the list of policies to a list of view models
             List<PolicyViewModel> viewModels = allPolicies.Select(policy => new PolicyViewModel
             {
                 PolicyNumber = policy.PolicyNumber,
@@ -87,23 +78,18 @@ namespace UI.Controllers
 
         public ActionResult EditPolicy(string policyNumber)
         {
-            // Check if policyNumber is null or empty
             if (string.IsNullOrEmpty(policyNumber))
             {
-                // Handle the case where policyNumber is not provided or is invalid
                 return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
             }
 
-            // Retrieve the policy from the database based on the provided policyNumber
             Policy policyToEdit = dbContext.Policies.FirstOrDefault(p => p.PolicyNumber == policyNumber);
 
-            // Check if the policy exists
             if (policyToEdit == null)
             {
                 return HttpNotFound();
             }
 
-            // Map the data from the data model to the view model
             PolicyViewModel viewModel = new PolicyViewModel
             {
                 PolicyNumber = policyToEdit.PolicyNumber,
@@ -122,44 +108,28 @@ namespace UI.Controllers
         {
             if (ModelState.IsValid)
             {
-                // Retrieve the policy from the database based on the provided policyNumber
                 Policy policyToEdit = dbContext.Policies.FirstOrDefault(p => p.PolicyNumber == viewModel.PolicyNumber);
 
-                // Check if the policy exists
                 if (policyToEdit == null)
                 {
                     return HttpNotFound();
                 }
 
-                // Update the policy with the new values
                 policyToEdit.DateOfCreation = viewModel.DateOfCreation;
                 policyToEdit.Category = viewModel.Category;
                 policyToEdit.PolicyType = viewModel.PolicyType;
                 policyToEdit.Price = viewModel.Price;
                
-
-                // Save changes to the database
                 dbContext.SaveChanges();
 
-                // Redirect to a success view or another action
                 return RedirectToAction("EditPolicySuccess");
             }
-
-            // If the model state is not valid, return to the edit view with validation errors
             return View(viewModel);
         }
         public ActionResult EditPolicySuccess()
         {
             return View();
         }
-
-
-
-
-        /////////////////////////////////////////////////////////////////////////////
-        ///
-
-
 
 
         public ActionResult ShowAllPoliciesDelete()

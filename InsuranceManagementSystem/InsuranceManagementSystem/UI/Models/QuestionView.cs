@@ -11,23 +11,15 @@ namespace UI.Models
 
         public int QuestionId { get; set; }
 
-        //[Required(ErrorMessage = "Customer Name is required.")]
-        //[MaxLength(100)] // Adjust the length as needed
-        //public string CUSTNAME { get; set; }
 
-        [MaxLength(255)] // Adjust the length as needed
+        [MaxLength(255)] 
         public string Question { get; set; }
 
         [DataType(DataType.Date)]
         public DateTime Date { get; set; } = DateTime.Now; // Default to the current date
 
-        [MaxLength(255)] // Adjust the length as needed
+        [MaxLength(255)] 
         public string Answer { get; set; }
-
-
-
-
-        //
 
         [Required(ErrorMessage = "Customer Id is required.")]
         public int CustomerId { get; set; }

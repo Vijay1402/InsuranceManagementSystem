@@ -84,13 +84,6 @@ namespace DAL.Data
             return _context.Customers.Any(a => a.UserName == userName);
         }
 
-        //public int GetCurrentCustomerId(string userName)
-        //{
-        //    // Implement the logic to get the customer's ID based on the username
-        //    var customer = _context.Customers.FirstOrDefault(c => c.UserName == userName);
-
-        //    return customer?.CustomerId ?? 0; // Return 0 or another default value if not found
-        //}
         public Customer GetCustomerByUserNamePhone(string UserName, string PhoneNumber)
         {
             return _context.Customers.FirstOrDefault(a => a.UserName == UserName && a.PhoneNumber == PhoneNumber);

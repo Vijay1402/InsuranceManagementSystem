@@ -83,31 +83,6 @@
                 @Html.ValidationMessage("captchaInput")
             </div>
         </div>
-        @*<div class="form-group">
-                @Html.Label("User Type", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                        if (User.IsInRole("Admin"))
-                        {
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(model => model.UserType, 2) Customer
-                            </label>
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(model => model.UserType, 1) Admin
-                            </label>
-                            @Html.ValidationMessageFor(model => model.UserType, "", new { @class = "text-danger" })
-                        }
-                    }
-                    else
-                    {
-                        <label class="radio-inline">
-                            @Html.RadioButtonFor(model => model.UserType, 2, new { @checked = true }) Customer
-                        </label>
-                        @Html.ValidationMessageFor(model => model.UserType, "", new { @class = "text-danger" })
-                    }
-                </div>
-            </div>*@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">

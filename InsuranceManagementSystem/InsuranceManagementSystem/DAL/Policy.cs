@@ -27,7 +27,6 @@ namespace DAL
         [DataType(DataType.Date)]
         public DateTime DateOfCreation { get; set; }
 
-        // Example: Policy Type (Life, Health, Auto, etc.)
         public string Category { get; set; }
 
 

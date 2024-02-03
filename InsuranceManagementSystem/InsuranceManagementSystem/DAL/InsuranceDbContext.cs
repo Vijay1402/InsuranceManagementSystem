@@ -26,10 +26,6 @@ namespace DAL
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            // Configure primary key for Questions entity
-
-
-            // Other configurations...
 
             base.OnModelCreating(modelBuilder);
 

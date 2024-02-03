@@ -27,7 +27,6 @@ namespace DAL
         [DataType(DataType.Date)]
         public DateTime AppliedDate { get; set; }
 
-        // Example: Policy Type (Life, Health, Auto, etc.)
         public string Category { get; set; }
 
         [Required(ErrorMessage = "Customer Id is required")]

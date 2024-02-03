@@ -12,14 +12,10 @@ namespace UI.Models
         [RegularExpression(@"^[a-zA-Z0-9_]*$", ErrorMessage = "Only letters, numbers, and underscores are allowed.")]
         public string UserName { get; set; }
 
-
-
         [Required(ErrorMessage = "Password is required.")]
         [DataType(DataType.Password)]
         [MaxLength(255)]
-
         public string Password { get; set; }
-
 
 
         [Compare("Password", ErrorMessage = "The password and confirm password do not match.")]

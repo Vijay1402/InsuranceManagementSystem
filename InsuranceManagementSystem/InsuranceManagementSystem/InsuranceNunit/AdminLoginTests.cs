@@ -76,14 +76,13 @@ namespace InsuranceNunit
         }
         private bool AdminExistsInDatabase(LoginView model)
         {
-            // Replace "YourConnectionString" with the actual connection string to your database
+           
             var connectionString = "data source=DESKTOP-VQHITSP;initial catalog=InsuranceDb;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework\" providerName=\"System.Data.SqlClient";
 
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
-                // Check if there is an Admin with the specified credentials in the database
                 using (var command = new SqlCommand($"SELECT COUNT(*) FROM Admins WHERE UserName = '{model.UserName}' AND Password = '{model.Password}'", connection))
                 {
                     return (int)command.ExecuteScalar() > 0;

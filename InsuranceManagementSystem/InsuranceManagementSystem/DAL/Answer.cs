@@ -14,11 +14,11 @@ namespace DAL
 
         public virtual Questions Question { get; set; }
 
-        [MaxLength(255)] // Adjust the length as needed
+        [MaxLength(255)] 
         public string AnswerText { get; set; }
 
         [DataType(DataType.Date)]
-        public DateTime AnswerDate { get; set; } = DateTime.Now; // Default to the current date
+        public DateTime AnswerDate { get; set; } = DateTime.Now; 
     }
 }
 
