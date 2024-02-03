@@ -39,7 +39,7 @@ namespace UI.Controllers
                 Policy newPolicy = new Policy
                 {
                     PolicyNumber = policyViewModel.PolicyNumber,
-                    DateOfCreation = policyViewModel.DateOfCreation,
+                    DateOfCreation = DateTime.Now,
                     Category = policyViewModel.Category,
                     PolicyType = policyViewModel.PolicyType,
                     Price = policyViewModel.Price

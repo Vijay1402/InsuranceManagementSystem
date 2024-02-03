@@ -64,7 +64,7 @@ namespace UI.Controllers
                         Category = policy.Category,
                         PolicyType = policy.PolicyType,
                         Price = policy.Price,
-                        CustomerId = customerId
+                        CustomerId = customerId,
                     };
               
                     dbContext.AppliedPolicies.Add(appliedPolicy);
@@ -100,28 +100,25 @@ namespace UI.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AskQuestion(QuestionView questionview)    
-
+        public ActionResult AskQuestion(QuestionView questionview)  
         {
             if (ModelState.IsValid)
             {
-               
+                int customerId = Convert.ToInt32(Session["CustomerUserId"]);
                 Questions newQuestion = new Questions
                 {
                     Question = questionview.Question,
-                    Date = questionview.Date,
+                    Date = DateTime.Now,
                     Answer = questionview.Answer,
-                    CustomerId = questionview.CustomerId
+                    CustomerId = customerId
                 };
 
                 dbContext.Questions.Add(newQuestion);
                 dbContext.SaveChanges();
 
-               
                 return RedirectToAction("Success");
             }
 
-          
             return View(questionview);
         }
         public ActionResult Success() 
@@ -136,23 +133,24 @@ namespace UI.Controllers
             }
             base.Dispose(disposing);
         }
-        public ActionResult AskCustomerId()  
+        public ActionResult AskCustomerId()
         {
             return View();
         }
-        
+
+
         [HttpPost]
-        public ActionResult DisplayQuestionsByCustomerId(int? customerId)  
+        public ActionResult DisplayQuestionsByCustomerId()  
         {
-           
-            if (!customerId.HasValue)
+            int customerId = Convert.ToInt32(Session["CustomerUserId"]);
+            if (customerId == null)
             {
                 
                 return RedirectToAction("Error");
             }
            
-            var questions = dbContext.Questions.Where(q => q.CustomerId == customerId.Value).ToList();
-            ViewBag.CustomerId = customerId.Value;
+            var questions = dbContext.Questions.Where(q => q.CustomerId == customerId).ToList();
+            ViewBag.CustomerId = customerId;
             return View(questions);
         }
     }

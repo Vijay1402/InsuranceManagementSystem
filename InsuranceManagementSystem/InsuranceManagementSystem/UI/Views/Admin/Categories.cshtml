@@ -43,7 +43,6 @@
     <tr>
         <th>Category ID</th>
         <th>Category Name</th>
-        <th>Number of Policies</th>
     </tr>
 
     @foreach (var category in Model)
@@ -51,7 +50,6 @@
         <tr>
             <td>@category.CategoryId</td>
             <td>@category.CategoryName</td>
-            <td>@(category.CategoryId)</td>
         </tr>
     }
 </table>

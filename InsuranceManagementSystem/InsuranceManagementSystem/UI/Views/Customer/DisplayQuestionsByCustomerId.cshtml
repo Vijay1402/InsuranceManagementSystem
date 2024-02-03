@@ -8,7 +8,19 @@
     ViewBag.Title = "Questions for Customer ID: " + ViewBag.CustomerId;
     Layout = "~/Views/Shared/_Layout.cshtml"; 
 }
+<style>
+    .navbar-nav.flex-grow-1 {
+        display: none;
+    }
 
+    #right-nav {
+        display: block;
+    }
+
+    #admin-dash {
+        display: none;
+    }
+</style>
 <h2>Questions for Customer ID: @ViewBag.CustomerId</h2>
 
 <table class="table">

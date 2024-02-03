@@ -2,21 +2,29 @@
     ViewBag.Title = "Ask Customer ID";
     Layout = "~/Views/Shared/_Layout.cshtml"; 
 }
+<style>
+    .navbar-nav.flex-grow-1 {
+        display: none;
+    }
 
+    #right-nav {
+        display: block;
+    }
+
+    #admin-dash {
+        display: none;
+    }
+</style>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <h2>Enter Customer ID</h2>
+            <h2>Click to check your questions</h2>
 
             @using (Html.BeginForm("DisplayQuestionsByCustomerId", "Customer", FormMethod.Post))
             {
-                <div class="form-group">
-                    <label for="customerId">Customer ID:</label>
-                    <input type="number" name="customerId" class="form-control" required />
-                </div>
 
                 <div class="form-group text-center">
-                    <input type="submit" value="Submit" class="btn btn-primary" />
+                    <input type="submit" value="View" class="btn btn-primary" />
                 </div>
             }
         </div>
